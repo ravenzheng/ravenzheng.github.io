@@ -63,187 +63,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-cool" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2014/11/06/cool/" class="article-date">
-  <time datetime="2014-11-06T20:18:27.000Z" itemprop="datePublished">11月 6 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2014/11/06/cool/">cool</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pingping.me/2014/11/06/cool/" data-id="q132fndyy75l5emf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Chapter 29 Normal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2014/11/06/Chapter 29 Normal/" class="article-date">
-  <time datetime="2014-11-06T19:48:56.000Z" itemprop="datePublished">11月 6 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2014/11/06/Chapter 29 Normal/">Chapter 29 Normal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Normal <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/29.html" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/chapters/29.html</a></p>
-</blockquote>
-<p>20141007 15:40-17:00<br>执行下面的命令</p>
-<figure class="highlight vimscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">:normal G       <span class="string">" 将光标跳转到最后一行</span></div><div class="line"><span class="comment">// 2</span></div><div class="line">:normal ggdd    <span class="string">" 将光标移到第一行,并删除该行</span></div></pre></td></tr></table></figure>
-
-<h3 id="Avoiding_Mappings">Avoiding Mappings</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">:nnoremap</span> <span class="constant">G</span> dd  <span class="string">" 把normal模式下的dd(删除当前行)操作映射到G上</span></div></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="literal">normal</span> G       <span class="string">" 此时执行dd操作</span></div></pre></td></tr></table></figure>
-
-<blockquote>
-<p>normal命令会根据用户的key mappings执行相应的命令,也是说如果我们使用<code>normal</code>执行某些默认命令时(而此默认命令被映射成了别的命令),得到的可能不是想要的效果.我们需要一个能执行默认命令默认行为的<code>normal</code>命令,类似于<code>nnoremap</code>.</p>
-</blockquote>
-<p>===分割线===</p>
-<blockquote>
-<p>答案就是<strong><code>normal!</code></strong></p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="literal">normal</span>! G       <span class="string">" 即使前面把dd的操作映射到G上,此处还是执行默认行为,跳转至最后一行</span></div></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在编写VIM script时,我们应该始终使用<strong><code>normal!</code></strong>命令,不要相信用户<code>~/.vimrc</code>文件中的key mappings.</p>
-</blockquote>
-<h3 id="Speical_Characters">Speical Characters</h3>
-<p>执行下面的命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="keyword">normal</span>! /foo&lt;<span class="constant">cr</span>&gt;</div></pre></td></tr></table></figure>
-
-<blockquote>
-<p>该命令不执行预想中的<strong>/foo</strong>(搜索foo)操作.<code>normal!</code>命令将<code>&lt;cr&gt;</code>理解为字面的<code>&lt;</code>,<code>c</code>,<code>r</code>,<code>&gt;</code>4个字符, 执行字符串搜索<strong>/foo<cr></cr></strong></p>
-</blockquote>
-<h3 id="Exercise_&amp;_Extra_Credit">Exercise &amp; Extra Credit</h3>
-<blockquote>
-<p>查看帮助文档<strong><a href="http://vimdoc.sourceforge.net/htmldoc/various.html#:normal" target="_blank" rel="external">:help normal</a></strong>和<strong><a href="http://vimdoc.sourceforge.net/htmldoc/helphelp.html#:helpgrep" target="_blank" rel="external">:help helpgrep`</a></strong></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pingping.me/2014/11/06/Chapter 29 Normal/" data-id="qj6aml5fgrbowrt1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vim-editor/">vim; editor</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Chapter 25 Numbers" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2014/11/06/Chapter 25 Numbers/" class="article-date">
-  <time datetime="2014-11-06T18:19:13.000Z" itemprop="datePublished">11月 6 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2014/11/06/Chapter 25 Numbers/">Chapter 25 NUmbers</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Numbers <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/25.html" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/chapters/25.html</a></p>
-</blockquote>
-<p>@(Programming)[vim]<br>20141008 10:20-10:40<br>VIM提供2中数字类型:<code>Number</code>和<code>Float</code>.</p>
-<h3 id="Number_Formats">Number Formats</h3>
-<p>执行下面的命令</p>
-<figure class="highlight vimscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">:echom <span class="number">100</span>  <span class="string">" decimal       // 100</span></div><div class="line"><span class="comment">// 2</span></div><div class="line">:echom <span class="number">0</span>xff <span class="string">" hexadecimal   // 255</span></div><div class="line"><span class="comment">// 3</span></div><div class="line">:echom <span class="number">010</span>  <span class="string">" octal         // 8</span></div><div class="line"><span class="comment">// 4</span></div><div class="line">:echom <span class="number">017</span> <span class="string">" octal          // 15</span></div><div class="line"><span class="comment">// 5</span></div><div class="line">:echom <span class="number">019</span> <span class="string">" invalide octal numbers, treated as a decimal   // 19</span></div></pre></td></tr></table></figure>
-
-<h3 id="Float_Formats">Float Formats</h3>
-<p>执行下面的命令</p>
-<figure class="highlight vimscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">100.1</span>                 <span class="comment">// 100.1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">5.45e+3</span>               <span class="comment">// 5450.0</span></div><div class="line"><span class="comment">// 3</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">15.45e-2</span>              <span class="comment">// 0.1545</span></div><div class="line"><span class="comment">// 4</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">15.3e9</span>                <span class="comment">// 1.53e10</span></div><div class="line"><span class="comment">// 5</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">5e9</span>   <span class="string">" decimal point and number after it are not optional</span></div><div class="line">E121: undefined variable: e7</div><div class="line">E15: Invalide expression: e7</div></pre></td></tr></table></figure>
-
-<h3 id="Coercion">Coercion</h3>
-<p><code>Number</code>和<code>Float</code>在进行运算时,<code>Number</code>转为了<code>Float</code>,执行下面的命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">echo</span> <span class="number">2</span> * <span class="number">2.0</span></div><div class="line"><span class="number">4.0</span></div></pre></td></tr></table></figure>
-
-<h3 id="Division">Division</h3>
-<p>2个<code>Numbers</code>相除,余数被舍弃.执行下面的命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">echo</span> <span class="number">3</span>/<span class="number">2</span></div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure>
-
-<p>如果想保留小数点,至少保证除数和被除数其中一个是<code>Float</code>, 执行下面的命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">echo</span> <span class="number">3</span>/<span class="number">2.0</span></div><div class="line"><span class="number">1.5</span></div></pre></td></tr></table></figure>
-
-<h3 id="Exercises">Exercises</h3>
-<ol>
-<li>查看<strong><a href="http://vimdoc.sourceforge.net/htmldoc/eval.html#Float" target="_blank" rel="external">:help Float</a></strong></li>
-<li>查看<strong><a href="http://vimdoc.sourceforge.net/htmldoc/eval.html#floating-point-precision" target="_blank" rel="external">:help floating-point-precision</a></strong></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pingping.me/2014/11/06/Chapter 25 Numbers/" data-id="ooszwmft4ffsm9dh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vim/">vim</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-Chapter 30 Execute Normal!" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2014/11/06/Chapter 30 Execute Normal!/" class="article-date">
@@ -302,7 +121,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pingping.me/2014/11/06/Chapter 30 Execute Normal!/" data-id="xhopkap7180inhby" class="article-share-link">Share</a>
+      <a data-url="http://pingping.me/2014/11/06/Chapter 30 Execute Normal!/" data-id="0eb45gdzh5ric9mb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vim-editor/">vim; editor</a></li></ul>
@@ -358,9 +177,149 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pingping.me/2014/11/06/hello-world/" data-id="6ju02trzyjo7zue6" class="article-share-link">Share</a>
+      <a data-url="http://pingping.me/2014/11/06/hello-world/" data-id="p2eckzwcqh9y2owp" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Chapter 25 Numbers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2014/10/08/Chapter 25 Numbers/" class="article-date">
+  <time datetime="2014-10-08T15:40:00.000Z" itemprop="datePublished">10月 8 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2014/10/08/Chapter 25 Numbers/">Chapter 25 NUmbers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Numbers <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/25.html" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/chapters/25.html</a></p>
+</blockquote>
+<p>@(Programming)[vim]<br>20141008 10:20-10:40<br>VIM提供2中数字类型:<code>Number</code>和<code>Float</code>.</p>
+<h3 id="Number_Formats">Number Formats</h3>
+<p>执行下面的命令</p>
+<figure class="highlight vimscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">:echom <span class="number">100</span>  <span class="string">" decimal       // 100</span></div><div class="line"><span class="comment">// 2</span></div><div class="line">:echom <span class="number">0</span>xff <span class="string">" hexadecimal   // 255</span></div><div class="line"><span class="comment">// 3</span></div><div class="line">:echom <span class="number">010</span>  <span class="string">" octal         // 8</span></div><div class="line"><span class="comment">// 4</span></div><div class="line">:echom <span class="number">017</span> <span class="string">" octal          // 15</span></div><div class="line"><span class="comment">// 5</span></div><div class="line">:echom <span class="number">019</span> <span class="string">" invalide octal numbers, treated as a decimal   // 19</span></div></pre></td></tr></table></figure>
+
+<h3 id="Float_Formats">Float Formats</h3>
+<p>执行下面的命令</p>
+<figure class="highlight vimscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">100.1</span>                 <span class="comment">// 100.1</span></div><div class="line"><span class="comment">// 2</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">5.45e+3</span>               <span class="comment">// 5450.0</span></div><div class="line"><span class="comment">// 3</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">15.45e-2</span>              <span class="comment">// 0.1545</span></div><div class="line"><span class="comment">// 4</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">15.3e9</span>                <span class="comment">// 1.53e10</span></div><div class="line"><span class="comment">// 5</span></div><div class="line">:<span class="keyword">echo</span> <span class="number">5e9</span>   <span class="string">" decimal point and number after it are not optional</span></div><div class="line">E121: undefined variable: e7</div><div class="line">E15: Invalide expression: e7</div></pre></td></tr></table></figure>
+
+<h3 id="Coercion">Coercion</h3>
+<p><code>Number</code>和<code>Float</code>在进行运算时,<code>Number</code>转为了<code>Float</code>,执行下面的命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">echo</span> <span class="number">2</span> * <span class="number">2.0</span></div><div class="line"><span class="number">4.0</span></div></pre></td></tr></table></figure>
+
+<h3 id="Division">Division</h3>
+<p>2个<code>Numbers</code>相除,余数被舍弃.执行下面的命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">echo</span> <span class="number">3</span>/<span class="number">2</span></div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure>
+
+<p>如果想保留小数点,至少保证除数和被除数其中一个是<code>Float</code>, 执行下面的命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">echo</span> <span class="number">3</span>/<span class="number">2.0</span></div><div class="line"><span class="number">1.5</span></div></pre></td></tr></table></figure>
+
+<h3 id="Exercises">Exercises</h3>
+<ol>
+<li>查看<strong><a href="http://vimdoc.sourceforge.net/htmldoc/eval.html#Float" target="_blank" rel="external">:help Float</a></strong></li>
+<li>查看<strong><a href="http://vimdoc.sourceforge.net/htmldoc/eval.html#floating-point-precision" target="_blank" rel="external">:help floating-point-precision</a></strong></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pingping.me/2014/10/08/Chapter 25 Numbers/" data-id="vgjh5jk7etghmwd8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Chapter 29 Normal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2014/10/07/Chapter 29 Normal/" class="article-date">
+  <time datetime="2014-10-07T22:00:00.000Z" itemprop="datePublished">10月 7 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2014/10/07/Chapter 29 Normal/">Chapter 29 Normal</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Normal <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/29.html" target="_blank" rel="external">http://learnvimscriptthehardway.stevelosh.com/chapters/29.html</a></p>
+</blockquote>
+<p>20141007 15:40-17:00<br>执行下面的命令</p>
+<figure class="highlight vimscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">:normal G       <span class="string">" 将光标跳转到最后一行</span></div><div class="line"><span class="comment">// 2</span></div><div class="line">:normal ggdd    <span class="string">" 将光标移到第一行,并删除该行</span></div></pre></td></tr></table></figure>
+
+<h3 id="Avoiding_Mappings">Avoiding Mappings</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">:nnoremap</span> <span class="constant">G</span> dd  <span class="string">" 把normal模式下的dd(删除当前行)操作映射到G上</span></div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="literal">normal</span> G       <span class="string">" 此时执行dd操作</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>normal命令会根据用户的key mappings执行相应的命令,也是说如果我们使用<code>normal</code>执行某些默认命令时(而此默认命令被映射成了别的命令),得到的可能不是想要的效果.我们需要一个能执行默认命令默认行为的<code>normal</code>命令,类似于<code>nnoremap</code>.</p>
+</blockquote>
+<p>===分割线===</p>
+<blockquote>
+<p>答案就是<strong><code>normal!</code></strong></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="literal">normal</span>! G       <span class="string">" 即使前面把dd的操作映射到G上,此处还是执行默认行为,跳转至最后一行</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在编写VIM script时,我们应该始终使用<strong><code>normal!</code></strong>命令,不要相信用户<code>~/.vimrc</code>文件中的key mappings.</p>
+</blockquote>
+<h3 id="Speical_Characters">Speical Characters</h3>
+<p>执行下面的命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="keyword">normal</span>! /foo&lt;<span class="constant">cr</span>&gt;</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>该命令不执行预想中的<strong>/foo</strong>(搜索foo)操作.<code>normal!</code>命令将<code>&lt;cr&gt;</code>理解为字面的<code>&lt;</code>,<code>c</code>,<code>r</code>,<code>&gt;</code>4个字符, 执行字符串搜索<strong>/foo<cr></cr></strong></p>
+</blockquote>
+<h3 id="Exercise_&amp;_Extra_Credit">Exercise &amp; Extra Credit</h3>
+<blockquote>
+<p>查看帮助文档<strong><a href="http://vimdoc.sourceforge.net/htmldoc/various.html#:normal" target="_blank" rel="external">:help normal</a></strong>和<strong><a href="http://vimdoc.sourceforge.net/htmldoc/helphelp.html#:helpgrep" target="_blank" rel="external">:help helpgrep`</a></strong></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pingping.me/2014/10/07/Chapter 29 Normal/" data-id="mggszuqf7hj09r88" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vim/">vim</a></li></ul>
+
     </footer>
   </div>
   
@@ -379,7 +338,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim-editor/">vim; editor</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim/">vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vim-editor/">vim; editor</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -388,7 +347,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/vim/" style="font-size: 10.00px;">vim</a><a href="/blog/tags/vim-editor/" style="font-size: 20.00px;">vim; editor</a>
+      <a href="/blog/tags/vim/" style="font-size: 20.00px;">vim</a><a href="/blog/tags/vim-editor/" style="font-size: 10.00px;">vim; editor</a>
     </div>
   </div>
 
@@ -397,7 +356,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2014/11/">November 2014</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -409,23 +368,19 @@
       <ul>
         
           <li>
-            <a href="/blog/2014/11/06/cool/">cool</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2014/11/06/Chapter 29 Normal/">Chapter 29 Normal</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2014/11/06/Chapter 25 Numbers/">Chapter 25 NUmbers</a>
-          </li>
-        
-          <li>
             <a href="/blog/2014/11/06/Chapter 30 Execute Normal!/">Chapter 30 Execute Normal!</a>
           </li>
         
           <li>
             <a href="/blog/2014/11/06/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2014/10/08/Chapter 25 Numbers/">Chapter 25 NUmbers</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2014/10/07/Chapter 29 Normal/">Chapter 29 Normal</a>
           </li>
         
       </ul>
